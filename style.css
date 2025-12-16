@@ -2,57 +2,35 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at center, #101722, #05070a);
+  background: #05070a;
   overflow: hidden;
   font-family: "Helvetica Neue", Arial, sans-serif;
+  cursor: pointer;
 }
 
-.space {
+#scene {
   width: 100%;
   height: 100%;
   position: relative;
-  animation: breathe 8s infinite ease-in-out;
 }
 
-/* breathing background */
-@keyframes breathe {
-  0% { filter: brightness(0.9); }
-  50% { filter: brightness(1.05); }
-  100% { filter: brightness(0.9); }
-}
-
-.text {
+#image {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#caption {
+  position: absolute;
+  bottom: 12%;
   width: 100%;
   text-align: center;
   color: rgba(255,255,255,0.85);
-  font-size: 2rem;
+  font-size: 1.6rem;
   letter-spacing: 0.05em;
   opacity: 0;
-}
-
-/* text timing */
-.t1 {
-  top: 40%;
-  animation: fadeText 8s infinite;
-}
-
-.t2 {
-  top: 40%;
-  animation: fadeText 8s infinite;
-  animation-delay: 2.5s;
-}
-
-.t3 {
-  top: 40%;
-  animation: fadeText 8s infinite;
-  animation-delay: 5s;
-}
-
-@keyframes fadeText {
-  0% { opacity: 0; }
-  20% { opacity: 1; }
-  40% { opacity: 1; }
-  60% { opacity: 0; }
-  100% { opacity: 0; }
+  transition: opacity 1s ease;
 }
