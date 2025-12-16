@@ -16,30 +16,24 @@ const texts = [
 
 let index = 0;
 
-const imgEl = document.getElementById("image");
-const textEl = document.getElementById("caption");
+const scene = document.getElementById("scene");
+const caption = document.getElementById("caption");
 
-// 初始显示
-imgEl.src = images[0];
-textEl.innerText = texts[0];
+/* 初始状态 */
+scene.style.backgroundImage = `url(${images[0]})`;
+caption.innerText = texts[0];
 
 requestAnimationFrame(() => {
-  imgEl.style.opacity = 1;
-  textEl.style.opacity = 1;
+  caption.style.opacity = 1;
 });
 
 document.body.addEventListener("click", () => {
-  // 淡出
-  imgEl.style.opacity = 0;
-  textEl.style.opacity = 0;
+  caption.style.opacity = 0;
 
   setTimeout(() => {
     index = (index + 1) % images.length;
-    imgEl.src = images[index];
-    textEl.innerText = texts[index];
-
-    // 淡入
-    imgEl.style.opacity = 1;
-    textEl.style.opacity = 1;
-  }, 1000);
+    scene.style.backgroundImage = `url(${images[index]})`;
+    caption.innerText = texts[index];
+    caption.style.opacity = 1;
+  }, 600);
 });
