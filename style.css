@@ -8,20 +8,28 @@ html, body {
   background: #000;
 }
 
+/* scene 本身就可见，防止黑屏 */
 #scene {
   width: 100%;
   height: 100%;
   position: relative;
 
-  /* 图片作为“环境” */
+  /* 🛟 保险背景 */
+  background:
+    radial-gradient(
+      ellipse at center,
+      #0f2a44 0%,
+      #081726 55%,
+      #000000 100%
+    ),
+    url("./img1.png");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  transition: background-image 1s ease;
 }
 
-/* 羽化 + 边缘渐黑（稳定方案） */
+/* 羽化 */
 .vignette {
   position: absolute;
   inset: 0;
@@ -44,7 +52,6 @@ html, body {
   color: rgba(200,220,255,0.9);
   font-size: 1.6rem;
   letter-spacing: 0.06em;
-  opacity: 0;
-  transition: opacity 1s ease;
+  opacity: 1;
   text-shadow: 0 0 12px rgba(80,140,255,0.25);
 }
