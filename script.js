@@ -8,8 +8,8 @@ const images = [
 
 const texts = [
   "After 2050, humans live inside spacecraft for extended periods of time.",
-  "Natural rhythms disappear. Day, night, and seasons no longer exist.",
-  "Isolation is no longer temporary. It becomes a permanent condition.",
+  "Natural rhythms disappear. Day and night lose meaning.",
+  "Isolation becomes a permanent condition, not a temporary state.",
   "Without familiar sensory cues, emotional stability begins to weaken.",
   "In deep space, the feeling of home must be rebuilt."
 ];
@@ -29,7 +29,7 @@ requestAnimationFrame(() => {
 });
 
 document.body.addEventListener("click", () => {
-  // fade out
+  // 淡出
   imgEl.style.opacity = 0;
   textEl.style.opacity = 0;
 
@@ -38,7 +38,7 @@ document.body.addEventListener("click", () => {
     imgEl.src = images[index];
     textEl.innerText = texts[index];
 
-    // fade in
+    // 淡入
     imgEl.style.opacity = 1;
     textEl.style.opacity = 1;
   }, 1000);
