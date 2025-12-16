@@ -1,9 +1,9 @@
 const images = [
-  "img1.png",
-  "img2.png",
-  "img3.png",
-  "img4.png",
-  "img5.png"
+  "./img1.png",
+  "./img2.png",
+  "./img3.png",
+  "./img4.png",
+  "./img5.png"
 ];
 
 const texts = [
@@ -19,21 +19,30 @@ let index = 0;
 const scene = document.getElementById("scene");
 const caption = document.getElementById("caption");
 
-/* 初始状态 */
-scene.style.backgroundImage = `url(${images[0]})`;
+// 初始化（双保险）
+scene.style.backgroundImage = `
+  radial-gradient(
+    ellipse at center,
+    #0f2a44 0%,
+    #081726 55%,
+    #000000 100%
+  ),
+  url(${images[0]})
+`;
 caption.innerText = texts[0];
 
-requestAnimationFrame(() => {
-  caption.style.opacity = 1;
-});
-
 document.body.addEventListener("click", () => {
-  caption.style.opacity = 0;
+  index = (index + 1) % images.length;
 
-  setTimeout(() => {
-    index = (index + 1) % images.length;
-    scene.style.backgroundImage = `url(${images[index]})`;
-    caption.innerText = texts[index];
-    caption.style.opacity = 1;
-  }, 600);
+  scene.style.backgroundImage = `
+    radial-gradient(
+      ellipse at center,
+      #0f2a44 0%,
+      #081726 55%,
+      #000000 100%
+    ),
+    url(${images[index]})
+  `;
+
+  caption.innerText = texts[index];
 });
