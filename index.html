@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <title>When Time Fails</title>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div id="scene">
-    <div class="vignette"></div>
-    <div id="caption">Loading...</div>
+  <!-- 图片背景层（关键） -->
+  <img id="bg-image" src="img1.png" alt="" />
+
+  <!-- 渐暗羽化层 -->
+  <div class="vignette"></div>
+
+  <!-- 文本 -->
+  <div id="caption">
+    After 2050, humans live inside spacecraft for extended periods of time.
   </div>
 
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
