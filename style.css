@@ -8,7 +8,6 @@ html, body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* 整个叙事场景 */
 #scene {
   position: fixed;
   inset: 0;
@@ -20,36 +19,39 @@ html, body {
   );
 }
 
-/* 主图像 */
+/* ⭐ 主图像：真正居中并融入 */
 #scene-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
-  z-index: 1;
 
-  /* ⭐ 图片羽化的关键 */
-  mask-image: radial-gradient(
-    ellipse at center,
-    rgba(0,0,0,1) 55%,
-    rgba(0,0,0,0.85) 70%,
-    rgba(0,0,0,0.3) 85%,
-    rgba(0,0,0,0) 100%
-  );
+  /* 🔑 改这里：从 contain → cover */
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+
+  /* 🔑 图片羽化（与背景融合的核心） */
   -webkit-mask-image: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,1) 55%,
-    rgba(0,0,0,0.85) 70%,
-    rgba(0,0,0,0.3) 85%,
+    rgba(0,0,0,1) 50%,
+    rgba(0,0,0,0.85) 68%,
+    rgba(0,0,0,0.35) 82%,
     rgba(0,0,0,0) 100%
   );
-
-  transition: opacity 0.8s ease;
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0,0,0,1) 50%,
+    rgba(0,0,0,0.85) 68%,
+    rgba(0,0,0,0.35) 82%,
+    rgba(0,0,0,0) 100%
+  );
 }
 
-/* 全局暗角 */
+/* 暗角 */
 #vignette {
   position: absolute;
   inset: 0;
@@ -58,13 +60,13 @@ html, body {
 
   background: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,0) 50%,
+    rgba(0,0,0,0) 55%,
     rgba(0,0,0,0.45) 75%,
     rgba(0,0,0,0.95) 100%
   );
 }
 
-/* 文本 */
+/* 字幕 */
 #caption {
   position: absolute;
   bottom: 12%;
