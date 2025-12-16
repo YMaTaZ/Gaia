@@ -18,15 +18,22 @@ let index = 0;
 
 const img = document.getElementById("scene-image");
 const caption = document.getElementById("caption");
+const scene = document.getElementById("scene");
 
-document.getElementById("scene").addEventListener("click", () => {
+scene.addEventListener("click", () => {
+  // 1. 先淡出
   img.style.opacity = 0;
   caption.style.opacity = 0;
 
+  // 2. 等淡出完成后再换内容
   setTimeout(() => {
     index = (index + 1) % images.length;
     img.src = images[index];
     caption.innerText = texts[index];
+  }, 500);
+
+  // 3. 再淡入
+  setTimeout(() => {
     img.style.opacity = 1;
     caption.style.opacity = 1;
   }, 600);
