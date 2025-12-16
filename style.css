@@ -1,4 +1,4 @@
-/* ===== 基础 ===== */
+/* ===== 基础设置 ===== */
 html, body {
   margin: 0;
   width: 100%;
@@ -9,16 +9,16 @@ html, body {
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ===== 场景容器 ===== */
+/* ===== 整个叙事场景 ===== */
 #scene {
   position: fixed;
   inset: 0;
 
-  /* 太空深蓝 → 黑色环境 */
+  /* 太空环境背景 */
   background: radial-gradient(
     ellipse at center,
-    #0e2740 0%,
-    #071423 50%,
+    #0c233a 0%,
+    #061220 45%,
     #000000 100%
   );
 }
@@ -30,45 +30,45 @@ html, body {
   width: 100%;
   height: 100%;
 
-  /* 图片始终在中间作为主视觉 */
+  /* 主视觉始终居中 */
   object-fit: cover;
   object-position: center;
 
   z-index: 1;
   opacity: 1;
-  transition: opacity 0.9s ease;
+  transition: opacity 0.8s ease;
 
   /* =========================
-     🌫 强化羽化（核心）
+     🌫 超强边缘羽化（重点）
      ========================= */
   -webkit-mask-image: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,1) 38%,
-    rgba(0,0,0,0.92) 50%,
-    rgba(0,0,0,0.75) 60%,
-    rgba(0,0,0,0.45) 68%,
-    rgba(0,0,0,0.18) 75%,
-    rgba(0,0,0,0.05) 82%,
+    rgba(0,0,0,1) 32%,
+    rgba(0,0,0,0.9) 42%,
+    rgba(0,0,0,0.65) 52%,
+    rgba(0,0,0,0.35) 60%,
+    rgba(0,0,0,0.15) 68%,
+    rgba(0,0,0,0.05) 75%,
     rgba(0,0,0,0) 100%
   );
   mask-image: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,1) 38%,
-    rgba(0,0,0,0.92) 50%,
-    rgba(0,0,0,0.75) 60%,
-    rgba(0,0,0,0.45) 68%,
-    rgba(0,0,0,0.18) 75%,
-    rgba(0,0,0,0.05) 82%,
+    rgba(0,0,0,1) 32%,
+    rgba(0,0,0,0.9) 42%,
+    rgba(0,0,0,0.65) 52%,
+    rgba(0,0,0,0.35) 60%,
+    rgba(0,0,0,0.15) 68%,
+    rgba(0,0,0,0.05) 75%,
     rgba(0,0,0,0) 100%
   );
 
   /* =========================
-     🌬 呼吸式亮度变化（加强）
+     🌬 呼吸动画（加快）
      ========================= */
-  animation: breathe 16s ease-in-out infinite;
+  animation: breathe 9s ease-in-out infinite;
 }
 
-/* ===== 全局暗角（压空间） ===== */
+/* ===== 环境暗角（压空间感） ===== */
 #vignette {
   position: absolute;
   inset: 0;
@@ -77,8 +77,8 @@ html, body {
 
   background: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,0) 45%,
-    rgba(0,0,0,0.55) 70%,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.6) 68%,
     rgba(0,0,0,0.95) 100%
   );
 }
@@ -98,7 +98,7 @@ html, body {
 
   text-shadow:
     0 0 10px rgba(80,140,255,0.25),
-    0 0 20px rgba(40,80,160,0.15);
+    0 0 22px rgba(40,80,160,0.18);
 
   transition: opacity 0.6s ease;
 }
@@ -108,12 +108,12 @@ html, body {
    ========================= */
 @keyframes breathe {
   0% {
-    filter: brightness(0.93) contrast(0.98);
+    filter: brightness(0.92) contrast(0.97);
   }
   50% {
-    filter: brightness(1.07) contrast(1.04);
+    filter: brightness(1.08) contrast(1.06);
   }
   100% {
-    filter: brightness(0.93) contrast(0.98);
+    filter: brightness(0.92) contrast(0.97);
   }
 }
