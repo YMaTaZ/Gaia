@@ -16,33 +16,16 @@ const texts = [
 
 let index = 0;
 
-const scene = document.getElementById("scene");
+const bg = document.getElementById("bg-image");
 const caption = document.getElementById("caption");
 
-// 初始化（双保险）
-scene.style.backgroundImage = `
-  radial-gradient(
-    ellipse at center,
-    #0f2a44 0%,
-    #081726 55%,
-    #000000 100%
-  ),
-  url(${images[0]})
-`;
-caption.innerText = texts[0];
-
 document.body.addEventListener("click", () => {
-  index = (index + 1) % images.length;
+  caption.style.opacity = 0;
 
-  scene.style.backgroundImage = `
-    radial-gradient(
-      ellipse at center,
-      #0f2a44 0%,
-      #081726 55%,
-      #000000 100%
-    ),
-    url(${images[index]})
-  `;
-
-  caption.innerText = texts[index];
+  setTimeout(() => {
+    index = (index + 1) % images.length;
+    bg.src = images[index];
+    caption.innerText = texts[index];
+    caption.style.opacity = 1;
+  }, 500);
 });
