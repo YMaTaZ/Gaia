@@ -6,7 +6,7 @@ html, body {
   cursor: pointer;
   font-family: "Helvetica Neue", Arial, sans-serif;
 
-  /* 深蓝太空背景 + 边缘渐黑 */
+  /* 深蓝太空背景 */
   background:
     radial-gradient(
       ellipse at center,
@@ -22,29 +22,32 @@ html, body {
   position: relative;
 }
 
-/* 图片 */
+/* 图片：作为“环境”铺满 */
 #image {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+
+  /* 🔑 核心修正 */
+  object-fit: cover;
+  object-position: center;
+
   opacity: 0;
   transition: opacity 1s ease;
 }
 
-/* 羽化层（100% 生效方案） */
+/* 羽化叠加层：只负责边缘暗化 */
 .vignette {
   position: absolute;
   width: 100%;
   height: 100%;
   pointer-events: none;
 
-  /* 图片边缘 → 背景自然融化 */
   background: radial-gradient(
     ellipse at center,
-    rgba(0,0,0,0) 55%,
-    rgba(0,0,0,0.35) 75%,
-    rgba(0,0,0,0.85) 100%
+    rgba(0,0,0,0) 50%,
+    rgba(0,0,0,0.45) 75%,
+    rgba(0,0,0,0.9) 100%
   );
 }
 
@@ -59,7 +62,5 @@ html, body {
   letter-spacing: 0.06em;
   opacity: 0;
   transition: opacity 1s ease;
-
-  /* 轻微冷光，融入深蓝 */
   text-shadow: 0 0 12px rgba(80,140,255,0.25);
 }
